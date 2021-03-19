@@ -33,6 +33,12 @@ const AddForm = (props) => {
             description:state.description
         }
         addSmurf(newSmurf)
+        setState({
+            name:"",
+            position:"",
+            nickname:"",
+            description:""
+        })
     }
 
     // const error = "";
