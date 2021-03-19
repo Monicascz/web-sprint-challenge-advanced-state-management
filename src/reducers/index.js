@@ -18,7 +18,7 @@ const reducer = (state=initialState, action)=>{
             return({
                 ...state,
                 isLoading: false,
-                smurfs:[...state, action.payload],
+                smurfs: action.payload,
                 error: ''
             })  
         case (FETCH_SMURFS_FAILURE):
