@@ -1,17 +1,24 @@
 
 export const initialState = {
+    smurfs:[],
+    isLoading: false,
+    error: 'Gargamel activity. Smurf Error',
 }
 
-const reducer = ()=>{
+const reducer = (state=initialState, action)=>{
+    switch(action.type){
+        default:
+            return state;
+    }
 }
 
 export default reducer;
 
 //Task List:
 //1. Adds the following state values into the initialState:
-//  - an array of smurfs
-//  - a boolean indicating if the app is loading
-//  - a string indicating a possible error message
+//  X an array of smurfs
+//  X a boolean indicating if the app is loading
+//  X a string indicating a possible error message
 
 //2. Add in the arguments needed to complete a standard reducer function.
 //3. Add in a reducer case to accomidate the start of a smurf fetch.
