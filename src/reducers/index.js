@@ -1,5 +1,6 @@
+import {FETCH_SMURFS_START, FETCH_SMURFS_SUCCESS, FETCH_SMURFS_FAILURE, ADD_SMURF, ADD_SMURF_ERROR} from '../actions/index'
 
-export const initialState = {
+const initialState = {
     smurfs:[],
     isLoading: false,
     error: 'Gargamel activity. Smurf Error',
@@ -7,6 +8,34 @@ export const initialState = {
 
 const reducer = (state=initialState, action)=>{
     switch(action.type){
+        case (FETCH_SMURFS_START):
+            return({
+                ...state,
+                isLoading: true,
+                error: ''
+            })
+        case (FETCH_SMURFS_SUCCESS):
+            return({
+                ...state,
+                isLoading: false,
+                smurfs:[...state, action.payload],
+                error: ''
+            })  
+        case (FETCH_SMURFS_FAILURE):
+            return({
+                ...state,
+                isLoading: false,
+                error: state.error,
+            })  
+        case (ADD_SMURF):
+            return({
+                ...state
+            }) 
+        case (ADD_SMURF_ERROR):
+        return({
+            ...state
+        }) 
+            
         default:
             return state;
     }
@@ -20,7 +49,7 @@ export default reducer;
 //  X a boolean indicating if the app is loading
 //  X a string indicating a possible error message
 
-//2. Add in the arguments needed to complete a standard reducer function.
+//2. X Add in the arguments needed to complete a standard reducer function.
 //3. Add in a reducer case to accomidate the start of a smurf fetch.
 //4. Add in a reducer case to accomidate the successful smurf api fetch.
 //5. Add in a reducer cases to accomidate the failed smurf api fetch.
